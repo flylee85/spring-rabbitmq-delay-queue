@@ -15,7 +15,6 @@
 
     <rabbit:admin connection-factory="connectionFactory"/>
 
-    <!-- 延迟队列 -->
     <rabbit:queue name="delay_queue" auto-declare="true">
         <rabbit:queue-arguments>
             <entry key="x-message-ttl" value="5000" value-type="java.lang.Long" />
@@ -24,7 +23,6 @@
         </rabbit:queue-arguments>
     </rabbit:queue>
 
-    <!-- 任务处理队列 -->
     <rabbit:queue name="task_queue" auto-declare="true"/>
     <rabbit:direct-exchange name="exchange_delay" durable="false" auto-delete="false" id="exchange_delay">
         <rabbit:bindings>
